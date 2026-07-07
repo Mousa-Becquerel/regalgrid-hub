@@ -27,8 +27,8 @@ export const API_BASE = `${_base}/api`
 export const APPS = [
   {
     id: 'sinergia',
-    name: 'Sinergia',
-    tagline: 'Estrazione di schemi unifilari (PDF) e digital twin geografico.',
+    name: 'Digital Twin Builder',
+    tagline: 'Estrai schemi unifilari (PDF) e costruisci il digital twin geografico dell’impianto.',
     path: '/sinergia/',
     storageKeys: {
       access: 'ed-extract.auth.access.v1',
@@ -39,7 +39,7 @@ export const APPS = [
   },
   {
     id: 'conv-agent',
-    name: 'Norma',
+    name: 'Norma Agent',
     tagline: 'Assistente normativo sui regolamenti elettrici italiani ed europei.',
     path: '/conv-agent/',
     storageKeys: {

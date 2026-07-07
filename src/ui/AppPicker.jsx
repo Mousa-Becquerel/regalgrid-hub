@@ -57,7 +57,7 @@ export default function AppPicker({ user, onLogout }) {
       <main className="page-main">
         <div className="picker-stack">
           <div className="picker-heading">
-            <span className="login-eyebrow">Portale strumenti</span>
+            <span className="login-eyebrow">Sinergia · Portale Regalgrid</span>
             <h1>Ciao{firstName(user) ? `, ${firstName(user)}` : ''}<span className="login-heading-dot">.</span></h1>
             <p>Scegli lo strumento che vuoi aprire.</p>
           </div>

@@ -34,9 +34,9 @@ export default function LoginScreen({ onAuthenticated }) {
       <main className="page-main">
         <div className="login-stack">
           <div className="login-heading">
-            <span className="login-eyebrow">Portale strumenti</span>
+            <span className="login-eyebrow">Sinergia · Portale Regalgrid</span>
             <h1>Accedi<span className="login-heading-dot">.</span></h1>
-            <p>Un solo accesso per tutti gli strumenti Regalgrid.</p>
+            <p>Un solo accesso per tutti gli strumenti Sinergia.</p>
           </div>
 
           <form className="login-card" onSubmit={onSubmit} noValidate>
