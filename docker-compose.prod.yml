@@ -1,0 +1,33 @@
+# Production compose for the Regalgrid hub on the shared solar-intelligence-dev EC2.
+#
+# Serves under https://dev.solarintelligence.ai/regalgrid/. The hub is
+# frontend-only — auth POSTs go to /regalgrid/api/* which the outer Caddy
+# proxies to one of the existing app APIs (they share auth via a common
+# users table + JWT_SECRET, so it doesn't matter which one).
+#
+# Invoked as:  docker compose -f docker-compose.prod.yml up -d --build
+
+services:
+  hub:
+    build:
+      context: .
+      args:
+        # Vite bakes this prefix into every asset URL and BASE_URL.
+        VITE_BASE: /regalgrid/
+    image: regalgrid-hub:latest
+    container_name: regalgrid-hub
+    restart: unless-stopped
+    networks:
+      - shared-net
+    deploy:
+      resources:
+        limits:
+          memory: 64M
+          cpus: "0.25"
+
+networks:
+  # External — owned by solar-intelligence. Same network the other app
+  # frontends are on, so Caddy reaches us by service name.
+  shared-net:
+    external: true
+    name: solar-intelligence_app-network
