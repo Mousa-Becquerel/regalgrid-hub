@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { login, AuthError } from '../lib/auth.js'
+import Logo from './Logo.jsx'
 
 export default function LoginScreen({ onAuthenticated }) {
   const [email, setEmail] = useState('')
@@ -27,17 +28,13 @@ export default function LoginScreen({ onAuthenticated }) {
       <div className="brand-strip" aria-hidden />
 
       <header className="page-header">
-        <span className="brand-mark">
-          <span className="dot" style={{ background: '#0a7a3e' }} />
-          <span className="dot" style={{ background: '#f7a01d' }} />
-          <span className="dot" style={{ background: '#c8384f' }} />
-        </span>
-        <span className="brand-name">Regalgrid</span>
+        <Logo className="hub-logo" />
       </header>
 
       <main className="page-main">
         <div className="login-stack">
           <div className="login-heading">
+            <span className="login-eyebrow">Portale strumenti</span>
             <h1>Accedi<span className="login-heading-dot">.</span></h1>
             <p>Un solo accesso per tutti gli strumenti Regalgrid.</p>
           </div>
@@ -76,11 +73,23 @@ export default function LoginScreen({ onAuthenticated }) {
               className="login-btn"
               disabled={submitting || !email || !password}
             >
-              {submitting ? 'Accesso in corso…' : 'Entra'}
+              {submitting ? (
+                <>
+                  <span className="login-spinner" aria-hidden />
+                  <span>Accesso in corso…</span>
+                </>
+              ) : (
+                <>
+                  <LoginArrow />
+                  <span>Entra</span>
+                </>
+              )}
             </button>
           </form>
 
-          <div className="login-foot">Accesso su invito.</div>
+          <div className="login-foot">
+            Accesso su invito. Contatta l'amministratore per un account.
+          </div>
         </div>
       </main>
 
@@ -88,5 +97,16 @@ export default function LoginScreen({ onAuthenticated }) {
         <span>© Regalgrid · Portale strumenti</span>
       </footer>
     </div>
+  )
+}
+
+function LoginArrow() {
+  return (
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+         strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
+      <path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4" />
+      <polyline points="10 17 15 12 10 7" />
+      <line x1="15" y1="12" x2="3" y2="12" />
+    </svg>
   )
 }

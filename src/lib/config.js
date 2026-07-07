@@ -34,7 +34,8 @@ export const APPS = [
       access: 'ed-extract.auth.access.v1',
       refresh: 'ed-extract.auth.refresh.v1',
     },
-    color: '#0a7a3e',
+    // Regalgrid brand green (the wordmark's leaf color).
+    color: '#6da819',
   },
   {
     id: 'conv-agent',
@@ -45,7 +46,8 @@ export const APPS = [
       access: 'conv-agent.auth.access.v1',
       refresh: 'conv-agent.auth.refresh.v1',
     },
-    color: '#0a4c7a',
+    // Regalgrid brand blue (from the wordmark dots).
+    color: '#0077c2',
   },
 ]
 
